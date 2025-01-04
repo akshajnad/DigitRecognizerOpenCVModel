@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MNIST Digit Recognition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>MNIST Digit Recognition</h1>
+    <p>Upload an image of a single handwritten digit (ideally white digit on black background). 
+       The model will predict which digit (0-9) it is.</p>
+
+    <form method="POST" action="/" enctype="multipart/form-data">
+        <label for="file">Choose an image file:</label><br>
+        <input type="file" name="image_file" id="file" accept="image/*" required>
+        <br><br>
+        <button type="submit">Upload & Classify</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            <p>{{ prediction }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
